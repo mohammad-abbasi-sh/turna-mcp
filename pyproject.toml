@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "turna-mcp"
+version = "0.1.0"
+description = "Unofficial read-only MCP server for turna.com flights (live search, cheapest fares, price calendars)"
+readme = "README.md"
+license = { text = "PolyForm-Noncommercial-1.0.0" }
+requires-python = ">=3.10"
+dependencies = [
+    "mcp<2",
+    "curl-cffi>=0.7,<1.0",
+]
+authors = [{ name = "Mohammad Abbasi" }]
+
+[project.scripts]
+turna-mcp = "turna_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/turna_mcp"]
